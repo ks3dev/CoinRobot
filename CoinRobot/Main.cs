@@ -25,7 +25,7 @@ namespace CoinRobot
                 var Work = await BLL.binance_NowCoin.CheckAndSendNews(await BLL.binance_NowCoin.CheckNewsLists());
                 if (Work.GetData)
                 {
-                    label_binance_NowCoin.Text = Convert.ToInt32(label_binance_NowCoin.Text) + 1.ToString();
+                    label_binance_NowCoin.Text = (Convert.ToDecimal(label_binance_NowCoin.Text) + 1).ToString();
                 }
             }
             if (checkBox_Twitter_whale_alert.Checked)
@@ -33,7 +33,7 @@ namespace CoinRobot
                 var Work = await BLL.Twitter.CheckAndSend(await BLL.Twitter.GetTwitters("whale_alert"));
                 if (Work.GetData)
                 {
-                    label_Twitter_whale_alert.Text = Convert.ToInt32(label_Twitter_whale_alert.Text) + 1.ToString();
+                    label_Twitter_whale_alert.Text = (Convert.ToDecimal(label_Twitter_whale_alert.Text) + 1).ToString();
                 }
             }
         }
