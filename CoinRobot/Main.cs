@@ -52,7 +52,7 @@ namespace CoinRobot
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            Text = string.Format("{0}  V:{1}", Text, Application.ProductVersion.ToString());
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Tweetinvi;
 
@@ -30,7 +31,9 @@ namespace CoinRobot.BLL
                             if (Check == null)
                             {
                                 //🚨  🔒  考虑是否过滤这两个符号
-                                string Message = string.Format("Twitter：{0} \r\n{1}", tweet.CreatedBy, tweet.Text);
+                                string pattern = "🔒🚨";
+                                string TweetText = Regex.Replace(tweet.Text, pattern, "");
+                                string Message = string.Format("Twitter：{0} \r\n{1}", tweet.CreatedBy, TweetText);
                                 var send = await BLL.LWR.SendMesage(Message, "4339085795@chatroom");
                                 if (send)
                                 {
