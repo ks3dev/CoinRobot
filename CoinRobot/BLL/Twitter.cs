@@ -31,8 +31,7 @@ namespace CoinRobot.BLL
                             if (Check == null)
                             {
                                 //🚨  🔒  考虑是否过滤这两个符号
-                                string pattern = "🔒🚨";
-                                string TweetText = Regex.Replace(tweet.Text, pattern, "");
+                                string TweetText = tweet.Text.Replace("🔒", "").Replace("🚨", "").TrimStart();
                                 string Message = string.Format("Twitter：{0} \r\n{1}", tweet.CreatedBy, TweetText);
                                 var send = await BLL.LWR.SendMesage(Message, "4339085795@chatroom");
                                 if (send)
