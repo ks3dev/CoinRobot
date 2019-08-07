@@ -33,7 +33,7 @@ namespace CoinRobot.BLL
                                 //🚨  🔒  考虑是否过滤这两个符号
                                 string TweetText = tweet.Text.Replace("🔒", "").Replace("🚨", "").TrimStart();
                                 string Message = string.Format("Twitter：{0} \r\n{1}", tweet.CreatedBy, TweetText);
-                                var send = await BLL.LWR.SendMesage(Message, "4339085795@chatroom");
+                                var send = await BLL.Yww.SendGroupMsg(Message, "4339085795@chatroom");
                                 if (send)
                                 {
                                     BLL.Public.WriteTxt(Path, tweet.IdStr);

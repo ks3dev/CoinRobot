@@ -36,7 +36,7 @@ namespace CoinRobot.BLL
                         if (Check == null)
                         {
                             string Message = string.Format("币安 新币上线：\r\n{0}\n{1}", new_.title, new_.url);
-                            var send = await BLL.LWR.SendMesage(Message, "4339085795@chatroom");
+                            var send = await BLL.Yww.SendGroupMsg(Message, "4339085795@chatroom");
                             if (send)
                             {
                                 BLL.Public.WriteTxt(Path, new_.url);
